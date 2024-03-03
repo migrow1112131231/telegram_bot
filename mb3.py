@@ -33,7 +33,7 @@ async def send_sticker(message: Message):
 
 @dp.message(F.photo)
 async def photo(message: Message):
-    await message.reply_photo(message.photo[0].file_id)
+    await message.answer_photo(message.photo[0].file_id)
     print('photo')
 
 @dp.message(F.document)
@@ -50,7 +50,7 @@ async def process_voice(messsage: Message):
 
 @dp.message()
 async def send_echo(message: Message):
-    await message.reply(text=message.text)
+    await message.answer(text=message.text)
 
 if __name__ == '__main__':
     dp.run_polling(bot)
